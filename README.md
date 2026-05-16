@@ -1,6 +1,6 @@
 # Smart Leads Dashboard
 
-A full-stack Lead Management Dashboard built with the MERN stack and TypeScript. Built as part of a Full Stack Internship Assignment.
+A full-stack Lead Management Dashboard built with the MERN stack and TypeScript.
 
 ## Screenshots
 
@@ -57,46 +57,66 @@ A full-stack Lead Management Dashboard built with the MERN stack and TypeScript.
 ```bash
 git clone https://github.com/AshrafAhmed9/smart-leads-dashboard.git
 cd smart-leads-dashboard
-2. Backend
+```
 
+### 2. Backend
+
+```bash
 cd server
 npm install
 cp .env.example .env
-# Fill in MONGODB_URI and JWT_SECRET in .env
 npm run dev
-3. Seed the database
+```
 
+### 3. Seed the database
+
+```bash
 npm run seed
-This creates:
+```
 
-admin@example.com / Admin1234!
-sales@example.com / Sales1234!
-20 realistic leads
-4. Frontend
+Creates:
+- `admin@example.com` / `Admin1234!`
+- `sales@example.com` / `Sales1234!`
+- 20 realistic leads
 
+### 4. Frontend
+
+```bash
 cd ../client
 npm install
 cp .env.example .env
-# Set VITE_API_URL=http://localhost:5000/api
 npm run dev
-Open http://localhost:5173
+```
 
-Docker
+Open `http://localhost:5173`
 
+## Docker
+
+```bash
 docker-compose build
 docker-compose up
-Environment Variables
-server/.env
+```
 
+## Environment Variables
+
+### `server/.env`
+
+```
 PORT=5000
 MONGODB_URI=your_mongodb_atlas_connection_string
 JWT_SECRET=your_secret_key
 CLIENT_URL=http://localhost:5173
-client/.env
+```
 
+### `client/.env`
+
+```
 VITE_API_URL=http://localhost:5000/api
-Project Structure
+```
 
+## Project Structure
+
+```
 smart-leads-dashboard/
 ├── server/
 │   └── src/
@@ -116,22 +136,28 @@ smart-leads-dashboard/
 │       ├── pages/         # Login, Register, Leads
 │       └── types/         # TypeScript interfaces
 └── docker-compose.yml
-API Reference
-Method	Endpoint	Auth	Role	Description
-POST	/api/auth/register	No	—	Register new user (always sales role)
-POST	/api/auth/login	No	—	Login and receive JWT
-GET	/api/auth/me	Yes	Any	Get current user
-GET	/api/leads	Yes	Any	List leads with filters and pagination
-POST	/api/leads	Yes	Any	Create a new lead
-PATCH	/api/leads/:id	Yes	Any	Update a lead
-DELETE	/api/leads/:id	Yes	Admin	Delete a lead
-GET	/api/leads/export/csv	Yes	Admin	Export filtered leads as CSV
-Query Parameters for GET /api/leads
-Param	Type	Description
-page	number	Page number (default: 1)
-limit	number	Records per page (default: 10)
-status	string	Filter by status (New, Contacted, Qualified, Lost)
-source	string	Filter by source (Website, Instagram, Referral)
-search	string	Search by name or email
-sort	string	latest or oldest
+```
 
+## API Reference
+
+| Method | Endpoint | Auth | Role | Description |
+|--------|----------|------|------|-------------|
+| POST | /api/auth/register | No | — | Register new user (always sales role) |
+| POST | /api/auth/login | No | — | Login and receive JWT |
+| GET | /api/auth/me | Yes | Any | Get current user |
+| GET | /api/leads | Yes | Any | List leads with filters and pagination |
+| POST | /api/leads | Yes | Any | Create a new lead |
+| PATCH | /api/leads/:id | Yes | Any | Update a lead |
+| DELETE | /api/leads/:id | Yes | Admin | Delete a lead |
+| GET | /api/leads/export/csv | Yes | Admin | Export filtered leads as CSV |
+
+### Query Parameters for `GET /api/leads`
+
+| Param | Type | Description |
+|-------|------|-------------|
+| page | number | Page number (default: 1) |
+| limit | number | Records per page (default: 10) |
+| status | string | New, Contacted, Qualified, Lost |
+| source | string | Website, Instagram, Referral |
+| search | string | Search by name or email |
+| sort | string | latest or oldest |
