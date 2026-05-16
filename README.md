@@ -2,6 +2,10 @@
 
 A full-stack Lead Management Dashboard built with the MERN stack and TypeScript.
 
+**Live Demo:** https://smart-leads-dashboard-jqiqrlnpn-ashraf-s-projects2.vercel.app
+
+**Backend API:** https://smart-leads-server-izyb.onrender.com
+
 ## Screenshots
 
 ![Login](screenshots/login.png)
