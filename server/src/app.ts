@@ -6,7 +6,13 @@ import { errorMiddleware } from './middleware/error.middleware';
 
 const app = express();
 
-app.use(cors({ origin: process.env.CLIENT_URL || 'http://localhost:5173' }));
+app.use(cors({
+  origin: [
+    'http://localhost:5173',
+    'https://smart-leads-dashboard-jqiqrlnpn-ashraf-s-projects2.vercel.app',
+  ],
+  credentials: true,
+}));
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
