@@ -20,5 +20,9 @@ export const updateLeadApi = (id: string, body: Partial<Pick<Lead, 'name' | 'ema
 export const deleteLeadApi = (id: string) =>
   api.delete<ApiResponse<null>>(`/leads/${id}`).then(r => r.data);
 
-export const exportCSVApi = (filters: Omit<LeadFilters, 'page'>) =>
-  api.get('/leads/export/csv', { params: filters, responseType: 'blob' }).then(r => r.data as Blob);
+export const exportCSVApi = (filters: Omit<LeadFilters, 'page'>) => {
+  const params = Object.fromEntries(
+    Object.entries(filters).filter(([, v]) => v !== '')
+  );
+  return api.get('/leads/export/csv', { params, responseType: 'blob' }).then(r => r.data as Blob);
+};
