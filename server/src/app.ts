@@ -9,10 +9,12 @@ const app = express();
 app.use(cors({
   origin: [
     'http://localhost:5173',
+    'https://smart-leads-dashboard-theta.vercel.app',
     'https://smart-leads-dashboard-jqiqrlnpn-ashraf-s-projects2.vercel.app',
   ],
   credentials: true,
 }));
+
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
